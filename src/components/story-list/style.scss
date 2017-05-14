@@ -1,0 +1,38 @@
+.StoryList {
+    border: 2px solid rgb(180, 180, 180);
+    background: white;
+    &_empty {
+        color: gray;
+    }
+    &_item {
+        border-bottom: 1px solid rgb(240, 240, 240);
+        display: flex;
+        &_rank,
+        &_content {
+            padding: 5px;
+        }
+        &_rank {
+            flex: 0 1 40px;
+            color: rgb(100, 100, 100);
+            line-height: 40px;
+            font-style: italic;
+            font-size: 32px;
+            font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+            &:before {
+                content: '#'
+            }
+        }
+        &_content {
+            flex: 1 0 0;
+            &_title {
+                line-height: 20px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            &_info {
+                line-height: 20px;
+                color: rgb(100, 100, 100);
+            }
+        }
+    }
+}

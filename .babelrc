@@ -1,0 +1,15 @@
+{
+    "presets": [
+        "stage-0",
+        [
+            "es2015",
+            {
+                "modules": false
+            }
+        ],
+        "react"
+    ],
+    "plugins": [
+        "react-hot-loader/babel" // is automatically disabled in production NODE_ENV by itself
+    ]
+}

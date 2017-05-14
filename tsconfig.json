@@ -1,0 +1,21 @@
+{
+    "include": [
+        "src",
+        "webpack.config.ts"
+    ],
+    "compilerOptions": {
+        "target": "es2016",
+        "strict": true,
+        "jsx": "preserve", // transformed by babel
+        "moduleResolution": "node",
+        "suppressImplicitAnyIndexErrors": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "lib": [
+            "es2017",
+            "es2015",
+            "es2016",
+            "dom"
+        ]
+    }
+}
