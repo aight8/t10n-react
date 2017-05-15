@@ -26,8 +26,7 @@ export default class StoryItem extends React.Component<Props, State> {
                     Points: {points} -
                     Author: {author} -
                     Total comments: {total_comments} -
-                    Created: <ReactTimeago date={created_at * 1000} /> -
-                    Growth rate: {growth_rate} points/s
+                    Created: <ReactTimeago date={created_at * 1000} />
                     </div>
                 </div>
             </div>
