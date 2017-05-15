@@ -1,6 +1,7 @@
 import * as React from 'react'
 import ReactTimeago from 'react-timeago'
-import IStory from '../../interface/IStory'
+import IStory from 'interface/IStory'
+import { List } from 'semantic-ui-react'
 
 export interface Props {
     rank: number
@@ -17,19 +18,27 @@ export default class StoryItem extends React.Component<Props, State> {
         const rank = this.props.rank
 
         return (
-            <div className="StoryList_item">
-                <div className="StoryList_item_rank">{rank}</div>
-                <div className="StoryList_item_content">
-                    <div className="StoryList_item_content_title">{title}</div>
-                    <div className="StoryList_item_content_info">
-                        ID: {id} -
-                    Points: {points} -
-                    Author: {author} -
-                    Total comments: {total_comments} -
-                    Created: <ReactTimeago date={created_at * 1000} />
+            <List.Item className="StoryList_item">
+                <List.Content
+                    floated="left"
+                    className="StoryList_item_rank"
+                >
+                    {rank}
+                </List.Content>
+                <List.Content
+                    floated="left"
+                    className="StoryList_item_content"
+                >
+                    <List.Header className="StoryList_item_content_title">{title}</List.Header>
+                    <div className="StoryList_item_content_properties">
+                        <span>ID: {id}</span>
+                        <span>Points: {points}</span>
+                        <span>Author: {author}</span>
+                        <span>Total comments: {total_comments}</span>
+                        <span>Created at: <ReactTimeago date={created_at * 1000} /></span>
                     </div>
-                </div>
-            </div>
+                </List.Content>
+            </List.Item>
         )
     }
 }

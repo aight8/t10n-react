@@ -3,6 +3,7 @@
     background: white;
     &_empty {
         color: gray;
+        padding: 20px;
     }
     &_item {
         border-bottom: 1px solid rgb(240, 240, 240);
@@ -12,11 +13,13 @@
             padding: 5px;
         }
         &_rank {
-            flex: 0 1 40px;
+            flex: 0 1 80px;
             color: rgb(100, 100, 100);
-            line-height: 40px;
             font-style: italic;
-            font-size: 32px;
+            font-size: 34px;
+            line-height: 44px;
+            padding-right: 10px;
+            text-align: right;
             font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
             &:before {
                 content: '#'
@@ -25,13 +28,23 @@
         &_content {
             flex: 1 0 0;
             &_title {
-                line-height: 20px;
+                line-height: 22px;
                 font-size: 15px;
                 font-weight: bold;
+                color: rgb(51,102,163);
             }
-            &_info {
-                line-height: 20px;
+            &_properties {
+                line-height: 22px;
                 color: rgb(100, 100, 100);
+                font-size: 12px;
+                span:not(:last-child) {
+                    &:after {
+                        content: '-';
+                        padding: 0 5px;
+                        color: rgb(200, 200, 200);
+                        font-weight: bold;
+                    }
+                }
             }
         }
     }

@@ -1,8 +1,9 @@
 import * as React from 'react'
 import * as SeamlessImmutable from 'seamless-immutable'
 import * as FlipMove from 'react-flip-move'
-import IStory from '../../interface/IStory'
+import IStory from 'interface/IStory'
 import StoryItem from './StoryItem'
+import { List } from 'semantic-ui-react'
 
 export interface Props {
     stories: IStory[]
@@ -38,12 +39,12 @@ export default class StoryList extends React.Component<Props, State> {
         }
 
         return (
-            <div className="StoryList">
+            <List className="StoryList">
                 <FlipMove>
                     {noItemsNode}
                     {storyNodes}
                 </FlipMove>
-            </div>
+            </List>
         )
     }
 }
