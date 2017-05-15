@@ -142,7 +142,11 @@ const configuration: webpack.Configuration = {
                 include: [path.resolve('src')]
             },
             { test: /\.css$/, use: cssLoaders },
-            { test: /\.scss$/, use: sassLoaders }
+            { test: /\.scss$/, use: sassLoaders },
+            {
+                test: /\.(ttf|png|svg|woff2?|eot)$/,
+                use: 'file-loader'
+            }
         ]
     },
     devServer: {
