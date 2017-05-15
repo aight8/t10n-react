@@ -15,6 +15,12 @@
         "paths": {
             "interface/*": [
                 "src/interface/*"
+            ],
+            "components/*": [
+                "src/components/*"
+            ],
+            "api/*": [
+                "src/api/*"
             ]
         },
         "lib": [
