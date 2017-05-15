@@ -41,6 +41,9 @@ const plugins = [
         cache: false, // rebuild if using webpack-dev-server
         template: 'assets/index.template.ejs',
         minify: false
+    }),
+    new webpack.EnvironmentPlugin({
+        API_BASE_URL: process.env.API_BASE_URL || 'http://localhost:10600/api/'
     })
     //new FriendlyErrorsWebpackPlugin()
 ]

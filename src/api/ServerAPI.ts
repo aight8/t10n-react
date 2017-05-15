@@ -1,6 +1,8 @@
 //import IStory from '../interface/IStory'
 import IStory from 'interface/IStory'
 
+const API_BASE_URL = process.env.API_BASE_URL
+
 interface GetNewComersResponse {
     stories: IStory[]
     error?: string
@@ -10,7 +12,7 @@ export default class ServerAPI {
     /**
      * The base API to the ruby server (with trailing slash)
      */
-    private static apiBaseUrl = 'http://localhost:10600/api/'
+    private static apiBaseUrl = API_BASE_URL
 
     /**
      * Calls the given API endpoint (prepended by the base API URL) and returns the JSON as object
