@@ -5,6 +5,7 @@ import * as React from 'react'
 import autobind from 'autobind-decorator'
 import * as SeamlessImmutable from 'seamless-immutable'
 import StoryList from 'components/story-list'
+import StoryItem from 'components/story-list/StoryItem'
 import IStory from 'interface/IStory'
 import { default as ServerAPI, ServerApiError } from 'api/ServerAPI'
 import ReactTimeago from 'react-timeago'
@@ -18,6 +19,7 @@ export interface Props {
 
 export interface State {
     stories: IStory[]
+    record: IStory | null
     lastUpdateAt: number | null
     isLoading: boolean
     autorefreshEnabled: boolean
@@ -32,6 +34,7 @@ export default class App extends React.Component<Props, State> {
 
         this.state = {
             stories: [],
+            record: null,
             lastUpdateAt: null,
             isLoading: false,
             autorefreshEnabled: false
@@ -50,10 +53,11 @@ export default class App extends React.Component<Props, State> {
                 isLoading: true
             }, async () => {
                 try {
-                    const stories = await ServerAPI.fetchNewcomers()
+                    const { stories, record } = await ServerAPI.fetchNewcomers()
 
                     this.setState({
                         stories,
+                        record,
                         lastUpdateAt: Date.now(),
                         isLoading: false
                     })
@@ -109,7 +113,7 @@ export default class App extends React.Component<Props, State> {
     }
 
     render() {
-        const { stories, isLoading, autorefreshEnabled, error, lastUpdateAt } = this.state
+        const { stories, record, isLoading, autorefreshEnabled, error, lastUpdateAt } = this.state
 
         return (
             <Container
@@ -122,9 +126,7 @@ export default class App extends React.Component<Props, State> {
                     content="Top 10 Newcomers"
                 />
                 <div className="App_header">
-                    <Button.Group
-                        size="small"
-                    >
+                    <Button.Group size="small">
                         <Button
                             content="Refresh Newcomers"
                             onClick={this.onRefreshClick}
@@ -153,6 +155,10 @@ export default class App extends React.Component<Props, State> {
                         {lastUpdateAt ? <ReactTimeago date={lastUpdateAt} /> : 'never'}
                     </span>
                 </div>
+                {record && <StoryList
+                    stories={[record]}
+                    className="StoryList--record"
+                />}
                 <StoryList stories={stories} />
             </Container>
         )

@@ -6,6 +6,7 @@ import StoryItem from './StoryItem'
 import { List } from 'semantic-ui-react'
 
 export interface Props {
+    className?: string
     stories: IStory[]
 }
 
@@ -15,7 +16,7 @@ export interface State {
 
 export default class StoryList extends React.Component<Props, State> {
     render() {
-        const stories = this.props.stories
+        const { stories, className } = this.props
 
         let noItemsNode
         let storyNodes
@@ -39,7 +40,7 @@ export default class StoryList extends React.Component<Props, State> {
         }
 
         return (
-            <List className="StoryList">
+            <List className={["StoryList", className].filter(c => typeof c !== undefined).join(' ')}>
                 <FlipMove>
                     {noItemsNode}
                     {storyNodes}

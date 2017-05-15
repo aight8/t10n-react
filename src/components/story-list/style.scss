@@ -1,9 +1,24 @@
+$story_list_line_height: 22px;
+
 .StoryList {
     border: 2px solid rgb(180, 180, 180);
     background: white;
     &_empty {
         color: gray;
         padding: 20px;
+    }
+    &--record {
+        .StoryList_item {
+            &_rank {
+                font-size: 0px;
+                line-height: 0px;
+                &:before {
+                    font-size: 34px;
+                    line-height: 44px;
+                    content: 'Record'
+                }
+            }
+        }
     }
     &_item {
         border-bottom: 1px solid rgb(240, 240, 240);
