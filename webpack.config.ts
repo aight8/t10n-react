@@ -105,6 +105,7 @@ const configuration: webpack.Configuration = {
     entry: {
         main: [
             'babel-polyfill',
+            'whatwg-fetch',
             'react-hot-loader/patch',
             path.resolve('src/index.tsx')
         ]

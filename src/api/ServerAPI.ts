@@ -1,4 +1,3 @@
-//import IStory from '../interface/IStory'
 import IStory from 'interface/IStory'
 
 const API_BASE_URL = process.env.API_BASE_URL
