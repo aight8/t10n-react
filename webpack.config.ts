@@ -7,6 +7,8 @@ import * as FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin'
 import * as WebpackHtmlPlugin from 'webpack-html-plugin'
 import * as ExtractTextWebpackPlugin from 'extract-text-webpack-plugin'
 
+const DEFAULT_API_BASE_URL = 'http://localhost:3000/api/'
+
 /**************
  * Environment
  *************/
@@ -43,7 +45,7 @@ const plugins = [
         minify: false
     }),
     new webpack.EnvironmentPlugin({
-        API_BASE_URL: process.env.API_BASE_URL || 'http://localhost:10600/api/'
+        API_BASE_URL: process.env.API_BASE_URL || DEFAULT_API_BASE_URL
     })
     //new FriendlyErrorsWebpackPlugin()
 ]
