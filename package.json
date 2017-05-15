@@ -27,9 +27,7 @@
         "react-trend": "^1.2.3",
         "seamless-immutable": "^7.1.2",
         "webpack-dev-server": "^2.4.5",
-        "webpack-html-plugin": "^0.1.1"
-    },
-    "devDependencies": {
+        "webpack-html-plugin": "^0.1.1",
         "@types/extract-text-webpack-plugin": "^2.0.1",
         "@types/react": "^15.0.24",
         "@types/react-dom": "^15.5.0",
