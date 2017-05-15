@@ -2,13 +2,18 @@ import IStory from 'interface/IStory'
 
 const API_BASE_URL = process.env.API_BASE_URL
 
-export interface GetNewComersResponse {
+export interface GetNewcomerStoriesData {
     stories: IStory[]
     record: IStory
-    error?: {
-        type: string
-        message: string
-    }
+}
+
+export interface ApiError extends Error {
+    type: string
+    message: string
+}
+
+export interface GetNewcomerStoriesResponse extends GetNewcomerStoriesData {
+    error?: ApiError
 }
 
 export class ServerApiError extends Error {
@@ -37,7 +42,7 @@ export default class ServerAPI {
         try {
             const endpointUrl = `${this.apiBaseUrl}${endpoint}`
             const response = await fetch(endpointUrl)
-            const data: GetNewComersResponse = await response.json()
+            const data: GetNewcomerStoriesResponse = await response.json()
             if (typeof data.error === 'string') {
                 // Development mode (Ruby internal errors)
                 const { error, exception } = data as any
@@ -58,11 +63,11 @@ export default class ServerAPI {
      * 
      * @throws Error
      */
-    public static async fetchNewcomers(): Promise<IStory[]> {
-        const res: GetNewComersResponse = await this.fetchJsonEndpoint('get_newcomer_stories')
+    public static async fetchNewcomers(): Promise<GetNewcomerStoriesData> {
+        const res: GetNewcomerStoriesResponse = await this.fetchJsonEndpoint('get_newcomer_stories')
         if (!res.stories) {
             throw new ServerApiError('ApiResponseError', 'The server responded with an invalid data structure.')
         }
-        return res.stories
+        return res
     }
 }
