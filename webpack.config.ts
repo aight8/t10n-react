@@ -48,9 +48,9 @@ const plugins = [
     //new FriendlyErrorsWebpackPlugin()
 ]
 
-if (IS_PROD) {
-    plugins.push(new webpack.NoEmitOnErrorsPlugin())
-}
+//if (IS_PROD) {
+//    plugins.push(new webpack.NoEmitOnErrorsPlugin())
+//}
 
 if (IS_DEV) {
     plugins.push(new webpack.NamedModulesPlugin())
