@@ -13,7 +13,7 @@ export interface State {
 
 export default class StoryItem extends React.Component<Props, State> {
     render() {
-        const { id, title, author, points, totalComments, createdAt, growthRate } = this.props.story
+        const { id, title, author, points, total_comments, created_at, growth_rate } = this.props.story
         const rank = this.props.rank
 
         return (
@@ -25,9 +25,9 @@ export default class StoryItem extends React.Component<Props, State> {
                         ID: {id} -
                     Points: {points} -
                     Author: {author} -
-                    Total comments: {totalComments} -
-                    Created: <ReactTimeago date={createdAt * 1000} /> -
-                    Growth rate: {growthRate} points/s
+                    Total comments: {total_comments} -
+                    Created: <ReactTimeago date={created_at * 1000} /> -
+                    Growth rate: {growth_rate} points/s
                     </div>
                 </div>
             </div>

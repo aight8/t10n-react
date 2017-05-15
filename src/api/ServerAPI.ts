@@ -5,6 +5,7 @@ const API_BASE_URL = process.env.API_BASE_URL
 
 interface GetNewComersResponse {
     stories: IStory[]
+    record: IStory
     error?: string
 }
 

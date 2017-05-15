@@ -3,9 +3,9 @@ interface IStory {
     title: string
     points: number
     author: string
-    totalComments: number
-    createdAt: number
-    growthRate: number
+    total_comments: number
+    created_at: number
+    growth_rate: number
 }
 
 export default IStory
