@@ -112,6 +112,11 @@ const configuration: webpack.Configuration = {
     },
     plugins,
     resolve: {
+        alias: {
+            api: path.resolve('src', 'api'),
+            components: path.resolve('src', 'components'),
+            interface: path.resolve('src', 'interface')
+        },
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
         modules: [
             'node_modules',

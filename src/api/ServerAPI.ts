@@ -1,4 +1,5 @@
-import IStory from '../interface/IStory'
+//import IStory from '../interface/IStory'
+import IStory from 'interface/IStory'
 
 interface GetNewComersResponse {
     stories: IStory[]

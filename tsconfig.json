@@ -11,6 +11,12 @@
         "suppressImplicitAnyIndexErrors": true,
         "experimentalDecorators": true,
         "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "interface/*": [
+                "src/interface/*"
+            ]
+        },
         "lib": [
             "es2017",
             "es2015",
